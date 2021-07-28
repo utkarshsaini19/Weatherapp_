@@ -7,15 +7,15 @@ import Weathercard from './Weathercard'
 
 
 
-const Temp = () => {
+const Temp = (props) => {
 
-  const { REACT_APP_API_ID } = process.env;
+  
   const [searchValue, setSearchValue] = useState("pune");
   const [tempInfo, setTempInfo] = useState({});
   const getWeatherInfo = async () => {
     try {
 
-    let url=`https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metric&appid=d0257d9b673f0ebbf684528e6b2b3440`;
+    let url=`https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metric&appid=${props.api}`;
       
 
       let res = await fetch(url);
